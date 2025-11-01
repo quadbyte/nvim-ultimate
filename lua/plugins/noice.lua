@@ -53,7 +53,7 @@ return {
         },
       },
       presets = {
-        bottom_search = true,
+        bottom_search = false,  -- Disabled to avoid conflicts with Telescope
         command_palette = false,  -- Disabled for performance (using classic cmdline)
         long_message_to_split = true,
         inc_rename = false,
