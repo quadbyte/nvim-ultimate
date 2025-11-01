@@ -1,0 +1,11 @@
+# ShellCheck configuration for Neovim Ultimate Edition
+# https://www.shellcheck.net/wiki/Directive
+
+# Disable specific warnings that are intentional or not applicable
+disable=SC2086  # Double quote to prevent globbing (intentional in some cases)
+disable=SC1090  # Can't follow non-constant source
+disable=SC1091  # Not following sourced files
+
+# Enable optional checks
+enable=quote-safe-variables
+enable=require-variable-braces

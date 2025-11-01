@@ -1,5 +1,4 @@
 # Neovim
-.luarc.json
 *.log
 debug.log
 
@@ -9,7 +8,7 @@ plugin/
 
 # LSP
 .null-ls_*
-.luarc.json
+.luarc.local.json
 
 # Session files
 *.vim

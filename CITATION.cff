@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+title: 'Neovim Ultimate Edition'
+message: 'If you use this software, please cite it as below.'
+type: software
+authors:
+  - family-names: QuadByte
+    alias: quadbyte
+version: 0.1.0
+date-released: '2025-01-01'
+repository-code: 'https://github.com/quadbyte/nvim-ultimate'
+url: 'https://github.com/quadbyte/nvim-ultimate'
+license: MIT
+keywords:
+  - neovim
+  - nvim
+  - text-editor
+  - configuration
+  - lua
+  - developer-tools
+  - ide
+  - profile-based
+  - multi-platform
+abstract: |
+  Neovim Ultimate Edition is a high-performance, profile-based Neovim configuration
+  designed for professional developers working across multiple companies, projects,
+  and tech stacks. It features 7 optimized development profiles, 64 carefully selected
+  plugins, 10+ themes with 25+ variants, and comprehensive customization capabilities.
