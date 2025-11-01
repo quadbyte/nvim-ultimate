@@ -135,21 +135,19 @@ return {
     event = "VeryLazy",
     opts = {
       plugins = { spelling = true },
-      defaults = {
-        mode = { "n", "v" },
-        ["<leader>b"] = { name = "+buffer" },
-        ["<leader>f"] = { name = "+find" },
-        ["<leader>g"] = { name = "+git" },
-        ["<leader>l"] = { name = "+lsp" },
-        ["<leader>s"] = { name = "+split" },
-        ["<leader>t"] = { name = "+terminal" },
-        ["<leader>u"] = { name = "+ui/toggle" },
+      spec = {
+        { "<leader>b", group = "buffer" },
+        { "<leader>f", group = "find" },
+        { "<leader>g", group = "git" },
+        { "<leader>l", group = "lsp" },
+        { "<leader>s", group = "split" },
+        { "<leader>t", group = "terminal" },
+        { "<leader>u", group = "ui/toggle" },
       },
     },
     config = function(_, opts)
       local wk = require("which-key")
       wk.setup(opts)
-      wk.register(opts.defaults)
     end,
   },
 

@@ -44,7 +44,14 @@ return {
       end,
     },
     init = function()
-      vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+      -- Setup folding options before plugin loads
+      vim.opt.fillchars = {
+        eob = " ",
+        fold = " ",
+        foldopen = "",
+        foldsep = " ",
+        foldclose = "",
+      }
       vim.o.foldcolumn = "1"
       vim.o.foldlevel = 99
       vim.o.foldlevelstart = 99
