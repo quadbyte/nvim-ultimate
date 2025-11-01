@@ -24,10 +24,12 @@
   },
   "homepage": "https://github.com/quadbyte/nvim-ultimate#readme",
   "scripts": {
-    "lint:md": "markdownlint '**/*.md' --ignore node_modules --ignore .git",
-    "lint:links": "markdown-link-check README.md docs/**/*.md --config .github/markdown-link-check-config.json",
+    "lint:md": "markdownlint '**/*.md' --ignore node_modules --ignore .git --config .markdownlintrc",
+    "lint:links": "find . -name '*.md' ! -path './node_modules/*' ! -path './.git/*' -exec markdown-link-check {} --config .github/markdown-link-check-config.json \\;",
     "format:md": "prettier --write '**/*.{md,json,yml,yaml}' --ignore-path .gitignore",
-    "format:check": "prettier --check '**/*.{md,json,yml,yaml}' --ignore-path .gitignore"
+    "format:check": "prettier --check '**/*.{md,json,yml,yaml}' --ignore-path .gitignore",
+    "test": "echo 'Run make test for full test suite'",
+    "prepare": "echo 'Neovim Ultimate Edition - Development setup complete'"
   },
   "devDependencies": {
     "markdown-link-check": "^3.12.1",
