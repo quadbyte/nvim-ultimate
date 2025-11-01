@@ -168,17 +168,34 @@ function M.extend_profile(base_profile, new_name, extensions)
   return extended
 end
 
+-- Cache for loaded configuration
+M.config_cache = nil
+M.config_cache_time = 0
+
 -- Get current profile (checks project-local first, then global)
+-- Cached to avoid repeated I/O operations
 function M.get()
   if not M.current_profile then
-    -- Check for project-local profile first
-    local project_config = M.load_project_profile()
-    if project_config and project_config.active_profile then
-      M.current_profile = project_config.active_profile
+    local current_time = vim.loop.hrtime()
+    -- Invalidate cache after 5 seconds (5e9 nanoseconds)
+    if not M.config_cache or (current_time - M.config_cache_time) > 5e9 then
+      -- Check for project-local profile first
+      local project_config = M.load_project_profile()
+      if project_config and project_config.active_profile then
+        M.current_profile = project_config.active_profile
+        M.config_cache = project_config
+      else
+        -- Fall back to global config
+        local config = M.load_config()
+        M.current_profile = config.active_profile or "fullstack"
+        M.config_cache = config
+      end
+      M.config_cache_time = current_time
     else
-      -- Fall back to global config
-      local config = M.load_config()
-      M.current_profile = config.active_profile or "fullstack"
+      -- Use cached profile
+      if M.config_cache and M.config_cache.active_profile then
+        M.current_profile = M.config_cache.active_profile
+      end
     end
   end
   return M.current_profile
@@ -201,6 +218,10 @@ function M.switch(profile_name)
   config.active_profile = profile_name
   M.save_config(config)
   M.current_profile = profile_name
+
+  -- Invalidate cache on profile switch
+  M.config_cache = nil
+  M.config_cache_time = 0
 
   vim.notify("Switched to profile: " .. M.profiles[profile_name].name .. "\nRestart Neovim to apply changes", vim.log.levels.INFO)
   return true

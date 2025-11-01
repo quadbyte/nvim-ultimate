@@ -35,24 +35,17 @@ require("commands").setup()
 -- Post-Setup
 -- ══════════════════════════════════════════════════════════════════════
 
--- Display startup info
+-- Display startup info (only for slow startups or when no file is opened)
 vim.api.nvim_create_autocmd("User", {
   pattern = "VeryLazy",
   callback = function()
-    local platform = require("utils.platform")
-    local profile_data = profile.get_profile_data()
     local startup_time = math.floor(vim.fn.reltimefloat(vim.fn.reltime(start_time)) * 1000)
 
-    -- Show startup info (only if not opening a file)
-    if vim.fn.argc() == 0 then
+    -- Only show notification if startup is slow (>100ms) or no files opened
+    if vim.fn.argc() == 0 and startup_time > 100 then
       vim.defer_fn(function()
-        local info = string.format(
-          "⚡ Neovim started in %dms | Profile: %s | Platform: %s %s",
-          startup_time,
-          profile_data.name,
-          platform.get_os(),
-          platform.get_arch()
-        )
+        local profile_data = profile.get_profile_data()
+        local info = string.format("⚡ Neovim started in %dms | Profile: %s", startup_time, profile_data.name)
         vim.notify(info, vim.log.levels.INFO)
       end, 100)
     end

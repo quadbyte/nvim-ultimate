@@ -18,30 +18,42 @@ return {
       { "<cr>", desc = "Increment selection" },
       { "<bs>", desc = "Decrement selection", mode = "x" },
     },
-    opts = {
-      highlight = { enable = true },
-      indent = { enable = true },
-      ensure_installed = {
-        "bash",
-        "c",
-        "html",
-        "javascript",
-        "json",
-        "lua",
-        "luadoc",
-        "luap",
-        "markdown",
-        "markdown_inline",
-        "python",
-        "query",
-        "regex",
-        "tsx",
-        "typescript",
-        "vim",
-        "vimdoc",
-        "yaml",
-      },
-      incremental_selection = {
+    opts = function()
+      -- Get profile-specific parsers
+      local profile = require("utils.profile")
+      local profile_data = profile.get_profile_data()
+
+      -- Base parsers for all profiles
+      local base_parsers = {
+        "lua", "luadoc", "vim", "vimdoc", "query", "markdown", "markdown_inline"
+      }
+
+      -- Profile-specific parsers
+      local profile_parsers = {}
+      for _, lang in ipairs(profile_data.languages or {}) do
+        if lang == "javascript" or lang == "typescript" then
+          vim.list_extend(profile_parsers, {"javascript", "typescript", "tsx", "json", "html", "css"})
+        elseif lang == "python" then
+          table.insert(profile_parsers, "python")
+        elseif lang == "go" then
+          table.insert(profile_parsers, "go")
+        elseif lang == "rust" then
+          table.insert(profile_parsers, "rust")
+        elseif lang == "yaml" then
+          table.insert(profile_parsers, "yaml")
+        elseif lang == "bash" then
+          table.insert(profile_parsers, "bash")
+        end
+      end
+
+      -- Combine and deduplicate
+      local all_parsers = vim.fn.uniq(vim.fn.sort(vim.list_extend(base_parsers, profile_parsers)))
+
+      return {
+        highlight = { enable = true },
+        indent = { enable = true },
+        ensure_installed = all_parsers,
+        incremental_selection = {
         enable = true,
         keymaps = {
           init_selection = "<CR>",
@@ -74,7 +86,8 @@ return {
           },
         },
       },
-    },
+      }
+    end,
     config = function(_, opts)
       require("nvim-treesitter.configs").setup(opts)
     end,
