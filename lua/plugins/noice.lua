@@ -15,7 +15,7 @@ return {
     opts = {
       cmdline = {
         enabled = true,
-        view = "cmdline_popup",
+        view = "cmdline",  -- Use classic cmdline view to avoid Telescope conflicts
         format = {
           cmdline = { icon = ">" },
           search_down = { icon = "/" },
