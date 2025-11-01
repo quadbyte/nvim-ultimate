@@ -110,7 +110,7 @@ return {
   -- Mason LSPConfig bridge
   {
     "williamboman/mason-lspconfig.nvim",
-    lazy = true,
+    lazy = false,  -- Must load immediately as dependency of nvim-lspconfig
   },
 
   -- Formatting
