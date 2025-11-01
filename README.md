@@ -315,7 +315,7 @@ Edit `lua/core/keymaps.lua`:
 vim.keymap.set("n", "<leader>cc", "<cmd>YourCommand<cr>", { desc = "Your command" })
 ```
 
-## 🎨 New Features (v2.0 - Theme & Customization Update)
+## 🎨 Theme & Customization Features
 
 ### 🌈 **10+ Colorscheme Support**
 ```vim
@@ -619,7 +619,7 @@ And many more excellent plugins!
 ## 📊 Stats
 
 - **Lines of Code**: ~3,500+ (modular & maintainable)
-- **Plugins**: 60+ (50+ features + 10 themes)
+- **Plugins**: 64 (54 features + 10 themes)
 - **Supported Languages**: 15+
 - **Platforms**: 3 (macOS, Linux, WSL)
 - **Profiles**: 7 pre-configured (+ unlimited custom)
@@ -628,13 +628,13 @@ And many more excellent plugins!
 - **Components**: 9 modular toggleable features
 - **Custom Commands**: 25+
 - **Files**: 35+ well-organized modules
-- **Documentation**: 8 comprehensive guides
+- **Documentation**: 15 comprehensive guides
 
 ## 💬 Support
 
 - **Issues**: [GitHub Issues](https://github.com/quadbyte/nvim-ultimate/issues)
 - **Discussions**: [GitHub Discussions](https://github.com/quadbyte/nvim-ultimate/discussions)
-- **Documentation**: This README + 8 comprehensive guides + inline code comments
+- **Documentation**: This README + 15 comprehensive guides + inline code comments
 
 > **Repository**: https://github.com/quadbyte/nvim-ultimate
 
