@@ -55,14 +55,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Utility**: `:EditConfig`, `:ClearCache`, `:UpdatePlugins`, `:FormatToggle`
 
 #### Documentation
-- **12 comprehensive guides** (3,000+ lines total)
-- Complete theme customization guide (THEMES.md)
+- **10 comprehensive documentation files**
+- Main documentation (README.md)
+- Quick start guide (QUICKSTART.md)
+- Keybindings reference (KEYBINDINGS.md)
+- Theme customization guide (THEMES.md)
 - Icon customization guide (ICONS.md)
 - Complete customization guide (CUSTOMIZATION.md)
 - Docker testing guide (DOCKER_TESTING.md)
-- Testing quickstart (TESTING_QUICKSTART.md)
-- Naming review report (NAMING_REVIEW.md)
-- Final testing report (TEST_REPORT.md, QUADBYTE_FINAL_REPORT.md)
+- Contributing guide (CONTRIBUTING.md)
+- Version history (CHANGELOG.md)
+- Release notes (RELEASE_NOTES.md)
 
 #### QuadByte Branding
 - Professional branding throughout all documentation

@@ -53,6 +53,8 @@ NVIM_DATA_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/nvim"
 BACKUP_DIR="$HOME/.config/nvim-backup-$(date +%Y%m%d-%H%M%S)"
 LOG_FILE="/tmp/nvim-ultimate-install-$(date +%Y%m%d-%H%M%S).log"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+REPO_URL="https://github.com/quadbyte/nvim-ultimate.git"
+TEMP_CLONE_DIR=""
 
 # ══════════════════════════════════════════════════════════════════════
 # Helper Functions
@@ -152,6 +154,43 @@ detect_package_manager() {
     fi
   fi
   print_info "Package manager: $PKG_MANAGER"
+}
+
+# ══════════════════════════════════════════════════════════════════════
+# Repository Cloning (for curl installation)
+# ══════════════════════════════════════════════════════════════════════
+
+clone_repository() {
+  # Check if we're running from a cloned repo or from curl
+  if [ ! -f "$SCRIPT_DIR/init.lua" ] || [ ! -d "$SCRIPT_DIR/lua" ]; then
+    print_header "CLONING REPOSITORY"
+    print_info "Downloading Neovim Ultimate Edition..."
+
+    TEMP_CLONE_DIR="/tmp/nvim-ultimate-$(date +%Y%m%d-%H%M%S)"
+
+    if [ "$DRY_RUN" = true ]; then
+      print_info "[DRY RUN] Would clone $REPO_URL to $TEMP_CLONE_DIR"
+      SCRIPT_DIR="$TEMP_CLONE_DIR"
+      return
+    fi
+
+    if ! command -v git &> /dev/null; then
+      error_exit "git is required but not installed. Please install git first."
+    fi
+
+    git clone --depth 1 "$REPO_URL" "$TEMP_CLONE_DIR" 2>&1 | tee -a "$LOG_FILE" || error_exit "Failed to clone repository"
+    SCRIPT_DIR="$TEMP_CLONE_DIR"
+    print_success "Repository cloned to $TEMP_CLONE_DIR"
+  else
+    print_info "Running from local repository: $SCRIPT_DIR"
+  fi
+}
+
+cleanup_temp_clone() {
+  if [ -n "$TEMP_CLONE_DIR" ] && [ -d "$TEMP_CLONE_DIR" ]; then
+    print_info "Cleaning up temporary clone..."
+    rm -rf "$TEMP_CLONE_DIR"
+  fi
 }
 
 # ══════════════════════════════════════════════════════════════════════
@@ -369,6 +408,9 @@ install_plugins() {
 # ══════════════════════════════════════════════════════════════════════
 
 main() {
+  # Set up cleanup trap
+  trap cleanup_temp_clone EXIT
+
   clear
   print_header "NEOVIM ULTIMATE EDITION INSTALLER"
   echo ""
@@ -381,6 +423,9 @@ main() {
   # Detect platform
   detect_platform
   detect_package_manager
+
+  # Clone repository if running from curl
+  clone_repository
 
   # Check dependencies first
   if [ "$SKIP_DEPS" = false ]; then
