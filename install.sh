@@ -361,9 +361,16 @@ deploy_config() {
 
   # Copy documentation files
   print_info "Copying documentation..."
-  for doc in README.md QUICKSTART.md KEYBINDINGS.md THEMES.md ICONS.md CUSTOMIZATION.md CONTRIBUTING.md CHANGELOG.md LICENSE; do
+
+  # Copy root documentation
+  for doc in README.md CONTRIBUTING.md CHANGELOG.md CODE_OF_CONDUCT.md SECURITY.md LICENSE; do
     [ -f "$SCRIPT_DIR/$doc" ] && cp "$SCRIPT_DIR/$doc" "$NVIM_CONFIG_DIR/"
   done
+
+  # Copy docs directory
+  if [ -d "$SCRIPT_DIR/docs" ]; then
+    cp -r "$SCRIPT_DIR/docs" "$NVIM_CONFIG_DIR/"
+  fi
 
   # Copy scripts
   [ -f "$SCRIPT_DIR/update.sh" ] && cp "$SCRIPT_DIR/update.sh" "$NVIM_CONFIG_DIR/" && chmod +x "$NVIM_CONFIG_DIR/update.sh"
@@ -510,11 +517,11 @@ main() {
   echo "     :Lazy"
   echo ""
   echo "Documentation:"
-  echo "  README:      $NVIM_CONFIG_DIR/README.md"
-  echo "  Keybindings: $NVIM_CONFIG_DIR/KEYBINDINGS.md"
-  echo "  Themes:      $NVIM_CONFIG_DIR/THEMES.md"
-  echo "  Icons:       $NVIM_CONFIG_DIR/ICONS.md"
-  echo "  Customize:   $NVIM_CONFIG_DIR/CUSTOMIZATION.md"
+  echo "  Hub:         $NVIM_CONFIG_DIR/docs/README.md"
+  echo "  Quick Start: $NVIM_CONFIG_DIR/docs/guides/QUICKSTART.md"
+  echo "  Keybindings: $NVIM_CONFIG_DIR/docs/guides/KEYBINDINGS.md"
+  echo "  Themes:      $NVIM_CONFIG_DIR/docs/guides/THEMES.md"
+  echo "  All Guides:  $NVIM_CONFIG_DIR/docs/"
   echo ""
   echo "Management:"
   echo "  Update:      $NVIM_CONFIG_DIR/update.sh"

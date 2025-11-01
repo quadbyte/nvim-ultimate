@@ -595,22 +595,30 @@ Contributions are welcome! Please:
 
 ## 📖 Additional Documentation
 
-### User Guides
-- [QUICKSTART.md](QUICKSTART.md) - Quick start guide
-- [KEYBINDINGS.md](KEYBINDINGS.md) - Complete keybinding reference
-- [THEMES.md](THEMES.md) - Theme customization guide (10+ themes)
-- [ICONS.md](ICONS.md) - Icon system guide (VSCode, Nerd, Minimal)
-- [CUSTOMIZATION.md](CUSTOMIZATION.md) - Complete customization guide
+### 📚 [Complete Documentation Hub](docs/README.md)
 
-### Developer & Testing
-- [DOCKER_TESTING.md](DOCKER_TESTING.md) - Docker-based testing guide
-- [CONTRIBUTING.md](CONTRIBUTING.md) - Contribution guidelines
-- [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) - Community standards
+All documentation is organized in the `docs/` directory for easy navigation:
 
-### Project Info
-- [CHANGELOG.md](CHANGELOG.md) - Version history
-- [SECURITY.md](SECURITY.md) - Security policy
-- [SUPPORT.md](SUPPORT.md) - Get help and support
+**User Guides** ([docs/guides/](docs/guides/))
+- **[Quick Start Guide](docs/guides/QUICKSTART.md)** - Get started in 5 minutes
+- **[Keybindings Reference](docs/guides/KEYBINDINGS.md)** - Complete keyboard shortcuts
+- **[Customization Guide](docs/guides/CUSTOMIZATION.md)** - Advanced customization
+- **[Themes Guide](docs/guides/THEMES.md)** - Theme system (10+ colorschemes)
+- **[Icons Guide](docs/guides/ICONS.md)** - Icon system (VSCode, Nerd, Minimal)
+
+**Development** ([docs/development/](docs/development/))
+- **[Docker Testing Guide](docs/development/DOCKER_TESTING.md)** - Testing with Docker
+
+**Community** ([docs/community/](docs/community/))
+- **[Support](docs/community/SUPPORT.md)** - Get help and troubleshoot
+- **[Roadmap](docs/community/ROADMAP.md)** - Future plans and features
+- **[Contributors](docs/community/CONTRIBUTORS.md)** - Project contributors
+
+**Project Policies** (root directory)
+- **[Contributing Guidelines](CONTRIBUTING.md)** - How to contribute
+- **[Code of Conduct](CODE_OF_CONDUCT.md)** - Community guidelines
+- **[Security Policy](SECURITY.md)** - Security reporting
+- **[Changelog](CHANGELOG.md)** - Version history
 
 ## 📝 License
 

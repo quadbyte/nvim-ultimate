@@ -118,9 +118,13 @@ jobs:
           test -f CHANGELOG.md
           test -f LICENSE
           test -f CONTRIBUTING.md
-          test -f THEMES.md
-          test -f ICONS.md
-          test -f CUSTOMIZATION.md
+          test -f CODE_OF_CONDUCT.md
+          test -f SECURITY.md
+          test -d docs
+          test -f docs/README.md
+          test -d docs/guides
+          test -d docs/development
+          test -d docs/community
 
   profile-validation:
     name: Validate Profile Configuration
