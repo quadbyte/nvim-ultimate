@@ -33,7 +33,7 @@ help: ## Display this help message
 
 version: ## Display version information
 	@echo "$(CYAN)Neovim Ultimate Edition$(NC)"
-	@echo "Version: 0.1.0"
+	@echo "Version: $$(cat VERSION)"
 	@echo "Copyright (c) 2024-2025 QuadByte"
 	@echo "Repository: https://github.com/quadbyte/nvim-ultimate"
 

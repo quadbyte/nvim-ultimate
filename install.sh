@@ -24,6 +24,8 @@ while [[ $# -gt 0 ]]; do
       shift
       ;;
     --help)
+      echo "Neovim Ultimate Edition v$VERSION - Universal Installer"
+      echo ""
       echo "Usage: $0 [OPTIONS]"
       echo ""
       echo "Options:"
@@ -53,6 +55,7 @@ NVIM_DATA_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/nvim"
 BACKUP_DIR="$HOME/.config/nvim-backup-$(date +%Y%m%d-%H%M%S)"
 LOG_FILE="/tmp/nvim-ultimate-install-$(date +%Y%m%d-%H%M%S).log"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+VERSION=$(cat "$SCRIPT_DIR/VERSION" 2>/dev/null || echo "0.1.0")
 REPO_URL="https://github.com/quadbyte/nvim-ultimate.git"
 TEMP_CLONE_DIR=""
 
@@ -480,7 +483,7 @@ main() {
   echo ""
   print_header "INSTALLATION COMPLETE"
   echo ""
-  print_success "Neovim Ultimate Edition installed successfully!"
+  print_success "Neovim Ultimate Edition v$VERSION installed successfully!"
   echo ""
   print_info "Profile: $PROFILE"
   print_info "Config: $NVIM_CONFIG_DIR"

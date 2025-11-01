@@ -21,6 +21,29 @@ jobs:
         id: get_version
         run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
 
+      - name: Validate VERSION file matches tag
+        run: |
+          TAG_VERSION="${{ steps.get_version.outputs.VERSION }}"
+          FILE_VERSION=$(cat VERSION)
+
+          if [ "$TAG_VERSION" != "$FILE_VERSION" ]; then
+            echo "❌ VERSION file ($FILE_VERSION) does not match git tag (v$TAG_VERSION)"
+            exit 1
+          fi
+
+          echo "✅ VERSION file matches git tag: $TAG_VERSION"
+
+      - name: Validate CHANGELOG has this version
+        run: |
+          VERSION="${{ steps.get_version.outputs.VERSION }}"
+
+          if ! grep -q "\[$VERSION\]" CHANGELOG.md; then
+            echo "❌ CHANGELOG.md does not contain entry for version $VERSION"
+            exit 1
+          fi
+
+          echo "✅ CHANGELOG.md contains entry for version $VERSION"
+
       - name: Extract changelog for this version
         id: changelog
         run: |
