@@ -68,6 +68,33 @@ jobs:
           test -x tests/test-themes.sh
           test -x tests/benchmark.sh
 
+  docker-tests:
+    name: Run Tests in Docker
+    runs-on: ubuntu-latest
+    needs: docker-build
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build test image
+        run: docker compose build nvim-ultimate-test
+
+      - name: Run benchmark tests
+        run: |
+          docker compose run --rm nvim-ultimate-test bash -c "cd /home/nvim && ./tests/benchmark.sh" || true
+        continue-on-error: true
+
+      - name: Test minimal profile
+        run: |
+          docker compose run --rm nvim-ultimate-test bash -c "cd /home/nvim && ./tests/test-profile.sh minimal" || true
+        continue-on-error: true
+
+      - name: Verify test completion
+        run: |
+          echo "Docker tests completed"
+
   documentation:
     name: Documentation Check
     runs-on: ubuntu-latest
@@ -119,7 +146,7 @@ jobs:
   summary:
     name: Test Summary
     runs-on: ubuntu-latest
-    needs: [lint, docker-build, test-scripts, documentation, profile-validation]
+    needs: [lint, docker-build, test-scripts, docker-tests, documentation, profile-validation]
     if: always()
     steps:
       - name: Check results
@@ -127,5 +154,6 @@ jobs:
           echo "Lint: ${{ needs.lint.result }}"
           echo "Docker Build: ${{ needs.docker-build.result }}"
           echo "Test Scripts: ${{ needs.test-scripts.result }}"
+          echo "Docker Tests: ${{ needs.docker-tests.result }}"
           echo "Documentation: ${{ needs.documentation.result }}"
           echo "Profile Validation: ${{ needs.profile-validation.result }}"

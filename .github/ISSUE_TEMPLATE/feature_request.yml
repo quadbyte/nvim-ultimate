@@ -1,0 +1,121 @@
+name: Feature Request
+description: Suggest a new feature or enhancement for Neovim Ultimate Edition
+title: "[Feature]: "
+labels: ["enhancement", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for suggesting a feature! Please describe your idea in detail below.
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Feature Summary
+      description: A brief, clear summary of the feature request
+      placeholder: What feature would you like to see added?
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem Statement
+      description: What problem does this feature solve? Is it related to a pain point?
+      placeholder: |
+        I'm always frustrated when...
+        This would help me because...
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed Solution
+      description: How would you like this feature to work?
+      placeholder: Describe your ideal solution...
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: Have you considered any alternative solutions or workarounds?
+      placeholder: Describe alternatives you've considered...
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Feature Category
+      description: What area does this feature relate to?
+      options:
+        - Profile System
+        - Theme System
+        - Icon System
+        - Component System
+        - LSP Configuration
+        - Plugin Management
+        - UI/UX
+        - Performance
+        - Documentation
+        - Testing
+        - Installation/Setup
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority (Your Perspective)
+      description: How important is this feature to you?
+      options:
+        - High - Essential for my workflow
+        - Medium - Would be very helpful
+        - Low - Nice to have
+    validations:
+      required: true
+
+  - type: textarea
+    id: examples
+    attributes:
+      label: Examples or References
+      description: Links to similar implementations, screenshots, or examples
+      placeholder: |
+        - Similar feature in another project: https://...
+        - Visual mockup: [attach screenshot]
+        - Related discussion: https://...
+
+  - type: textarea
+    id: use-cases
+    attributes:
+      label: Use Cases
+      description: Who would benefit from this feature and in what scenarios?
+      placeholder: |
+        - Frontend developers when working with...
+        - Backend developers who need to...
+        - Teams using...
+
+  - type: checkboxes
+    id: contribution
+    attributes:
+      label: Contribution
+      description: Would you be willing to help implement this feature?
+      options:
+        - label: I would be willing to submit a PR for this feature
+          required: false
+        - label: I can help test this feature
+          required: false
+        - label: I can help with documentation for this feature
+          required: false
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Pre-submission Checklist
+      options:
+        - label: I have searched existing issues and discussions to ensure this hasn't been requested
+          required: true
+        - label: This feature aligns with the project's goals (multi-platform, profile-based configuration)
+          required: true

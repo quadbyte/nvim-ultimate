@@ -1,0 +1,107 @@
+name: Question or Help
+description: Ask a question or get help using Neovim Ultimate Edition
+title: "[Question]: "
+labels: ["question"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Have a question? We're here to help! Please provide as much detail as possible.
+
+        **Note**: For general discussions, consider using [GitHub Discussions](https://github.com/quadbyte/nvim-ultimate/discussions) instead.
+
+  - type: textarea
+    id: question
+    attributes:
+      label: Your Question
+      description: What would you like to know?
+      placeholder: Ask your question here...
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Question Category
+      description: What is your question about?
+      options:
+        - Installation / Setup
+        - Configuration / Customization
+        - Profile System
+        - Theme System
+        - Icon System
+        - LSP / Language Servers
+        - Plugins
+        - Keybindings
+        - Performance
+        - Troubleshooting
+        - General Usage
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: What have you already tried? What is your current setup?
+      placeholder: |
+        - I'm using profile: ...
+        - I've tried: ...
+        - My goal is to: ...
+
+  - type: textarea
+    id: config
+    attributes:
+      label: Configuration (if relevant)
+      description: Your profile.json or relevant configuration
+      placeholder: Paste relevant configuration here
+      render: json
+
+  - type: dropdown
+    id: experience
+    attributes:
+      label: Experience Level
+      description: How familiar are you with Neovim?
+      options:
+        - Beginner - New to Neovim
+        - Intermediate - Some Neovim experience
+        - Advanced - Experienced with Neovim
+    validations:
+      required: true
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating System
+      options:
+        - macOS
+        - Linux
+        - Windows WSL2
+        - Other
+
+  - type: textarea
+    id: documentation
+    attributes:
+      label: Documentation Checked
+      description: Which documentation have you already reviewed?
+      placeholder: |
+        - [ ] README.md
+        - [ ] QUICKSTART.md
+        - [ ] KEYBINDINGS.md
+        - [ ] THEMES.md
+        - [ ] ICONS.md
+        - [ ] CUSTOMIZATION.md
+        - [ ] CONTRIBUTING.md
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Pre-submission Checklist
+      options:
+        - label: I have checked the documentation for an answer
+          required: true
+        - label: I have searched existing issues and discussions
+          required: true
+        - label: This is a specific question (not a bug report or feature request)
+          required: true

@@ -6,6 +6,10 @@ A high-performance, modular Neovim distribution designed for developers working 
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Platform](https://img.shields.io/badge/platform-macOS%20%7C%20Linux%20%7C%20WSL-blue)](#)
+[![Version](https://img.shields.io/badge/version-0.1.0-green.svg)](https://github.com/quadbyte/nvim-ultimate/releases)
+[![CI](https://github.com/quadbyte/nvim-ultimate/workflows/Tests/badge.svg)](https://github.com/quadbyte/nvim-ultimate/actions)
+[![Stars](https://img.shields.io/github/stars/quadbyte/nvim-ultimate?style=social)](https://github.com/quadbyte/nvim-ultimate)
+[![Code of Conduct](https://img.shields.io/badge/Code%20of%20Conduct-Contributor%20Covenant-purple.svg)](CODE_OF_CONDUCT.md)
 
 ## ✨ Features
 
@@ -573,13 +577,22 @@ Contributions are welcome! Please:
 
 ## 📖 Additional Documentation
 
+### User Guides
+- [QUICKSTART.md](QUICKSTART.md) - Quick start guide
 - [KEYBINDINGS.md](KEYBINDINGS.md) - Complete keybinding reference
 - [THEMES.md](THEMES.md) - Theme customization guide (10+ themes)
 - [ICONS.md](ICONS.md) - Icon system guide (VSCode, Nerd, Minimal)
 - [CUSTOMIZATION.md](CUSTOMIZATION.md) - Complete customization guide
-- [CHANGELOG.md](CHANGELOG.md) - Version history
+
+### Developer & Testing
+- [DOCKER_TESTING.md](DOCKER_TESTING.md) - Docker-based testing guide
 - [CONTRIBUTING.md](CONTRIBUTING.md) - Contribution guidelines
-- [QUICKSTART.md](QUICKSTART.md) - Quick start guide
+- [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) - Community standards
+
+### Project Info
+- [CHANGELOG.md](CHANGELOG.md) - Version history
+- [SECURITY.md](SECURITY.md) - Security policy
+- [SUPPORT.md](SUPPORT.md) - Get help and support
 
 ## 📝 License
 

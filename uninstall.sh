@@ -47,7 +47,7 @@ main() {
   echo "  2) Configuration + data (complete removal)"
   echo "  3) Cancel"
   echo ""
-  read -p "Choose [1-3]: " choice
+  read -p "Choose [1-3]: " choice < /dev/tty
 
   case $choice in
     1)
