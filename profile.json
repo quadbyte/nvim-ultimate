@@ -1,0 +1,49 @@
+{
+  "active_profile": "fullstack",
+  "performance_mode": "balanced",
+  "last_updated": "2024-01-01",
+  "custom_settings": {
+    "enable_inlay_hints": false,
+    "format_on_save": true,
+    "auto_install_lsp": true,
+    "enable_copilot": false,
+    "session_autosave": true
+  },
+  "ui_preferences": {
+    "colorscheme": "tokyonight",
+    "style": "night",
+    "transparency": false,
+    "icons": "vscode",
+    "borders": "rounded"
+  },
+  "components": {
+    "statusline": {
+      "enabled": true,
+      "style": "default"
+    },
+    "tabline": {
+      "enabled": true
+    },
+    "explorer": {
+      "enabled": true,
+      "width": 30
+    },
+    "terminal": {
+      "enabled": true,
+      "position": "float"
+    },
+    "git_signs": {
+      "enabled": true
+    },
+    "completion": {
+      "enabled": true
+    },
+    "diagnostics": {
+      "enabled": true,
+      "virtual_text": true
+    },
+    "notifications": {
+      "enabled": true
+    }
+  }
+}

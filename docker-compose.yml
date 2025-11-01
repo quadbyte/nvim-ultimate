@@ -1,0 +1,167 @@
+services:
+  # Main testing environment
+  nvim-ultimate-test:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: test
+    container_name: nvim-ultimate-test
+    image: nvim-ultimate:test
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./:/home/nvim/.config/nvim/:ro
+      - nvim-data:/home/nvim/.local/share/nvim
+      - nvim-state:/home/nvim/.local/state/nvim
+      - ./tests:/home/nvim/tests:ro
+    environment:
+      - TERM=xterm-256color
+      - NVIM_PROFILE=fullstack
+    command: /bin/bash
+    networks:
+      - nvim-test-network
+
+  # Minimal profile test
+  nvim-minimal:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: test
+    container_name: nvim-minimal-test
+    image: nvim-ultimate:test
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./:/home/nvim/.config/nvim/:ro
+      - nvim-minimal-data:/home/nvim/.local/share/nvim
+      - nvim-minimal-state:/home/nvim/.local/state/nvim
+    environment:
+      - TERM=xterm-256color
+      - NVIM_PROFILE=minimal
+    command: /home/nvim/tests/test-profile.sh minimal
+    networks:
+      - nvim-test-network
+
+  # Frontend profile test
+  nvim-frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: test
+    container_name: nvim-frontend-test
+    image: nvim-ultimate:test
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./:/home/nvim/.config/nvim/:ro
+      - nvim-frontend-data:/home/nvim/.local/share/nvim
+    environment:
+      - TERM=xterm-256color
+      - NVIM_PROFILE=frontend
+    command: /home/nvim/tests/test-profile.sh frontend
+    networks:
+      - nvim-test-network
+
+  # Backend profile test
+  nvim-backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: test
+    container_name: nvim-backend-test
+    image: nvim-ultimate:test
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./:/home/nvim/.config/nvim/:ro
+      - nvim-backend-data:/home/nvim/.local/share/nvim
+    environment:
+      - TERM=xterm-256color
+      - NVIM_PROFILE=backend
+    command: /home/nvim/tests/test-profile.sh backend
+    networks:
+      - nvim-test-network
+
+  # Theme testing
+  nvim-theme-test:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: test
+    container_name: nvim-theme-test
+    image: nvim-ultimate:test
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./:/home/nvim/.config/nvim/:ro
+      - nvim-theme-data:/home/nvim/.local/share/nvim
+    environment:
+      - TERM=xterm-256color
+    command: /home/nvim/tests/test-themes.sh
+    networks:
+      - nvim-test-network
+
+  # Performance benchmark
+  nvim-benchmark:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: test
+    container_name: nvim-benchmark
+    image: nvim-ultimate:test
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./:/home/nvim/.config/nvim/:ro
+      - nvim-benchmark-data:/home/nvim/.local/share/nvim
+    environment:
+      - TERM=xterm-256color
+    command: /home/nvim/tests/benchmark.sh
+    networks:
+      - nvim-test-network
+
+  # Interactive testing environment
+  nvim-interactive:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+    container_name: nvim-interactive
+    image: nvim-ultimate:production
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./:/home/nvim/.config/nvim/:ro
+      - ./testfiles:/home/nvim/workspace:rw
+      - nvim-interactive-data:/home/nvim/.local/share/nvim
+    environment:
+      - TERM=xterm-256color
+      - NVIM_PROFILE=fullstack
+    working_dir: /home/nvim/workspace
+    command: /bin/bash
+    networks:
+      - nvim-test-network
+
+volumes:
+  nvim-data:
+    driver: local
+  nvim-state:
+    driver: local
+  nvim-minimal-data:
+    driver: local
+  nvim-minimal-state:
+    driver: local
+  nvim-frontend-data:
+    driver: local
+  nvim-backend-data:
+    driver: local
+  nvim-theme-data:
+    driver: local
+  nvim-benchmark-data:
+    driver: local
+  nvim-interactive-data:
+    driver: local
+
+networks:
+  nvim-test-network:
+    driver: bridge

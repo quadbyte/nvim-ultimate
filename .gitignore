@@ -1,0 +1,90 @@
+# Neovim
+.luarc.json
+*.log
+debug.log
+
+# Plugin manager
+lazy-lock.json
+plugin/
+
+# LSP
+.null-ls_*
+.luarc.json
+
+# Session files
+*.vim
+Session.vim
+sessions/
+
+# Undo history
+[._]*.un~
+undo/
+
+# Swap files
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-rt-v][a-z]
+[._]ss[a-gi-z]
+[._]sw[a-p]
+
+# OS specific
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+*~
+
+# Local user customizations
+local.lua
+*.local.lua
+.nvim-profile.local.json
+
+# Backup files
+*.bak
+*.backup
+
+# Tags
+tags
+tags.lock
+tags.temp
+.tags
+
+# Node modules (if using any node-based tools)
+node_modules/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.venv/
+venv/
+
+# Compiled files
+*.o
+*.so
+*.dylib
+*.dll
+
+# IDE
+.vscode/
+.idea/
+
+# Logs and databases
+*.sqlite
+*.db
+
+# Docker
+.dockerignore
+docker-compose.override.yml
+
+# Test artifacts
+/tmp/
+*.test.log
+/tests/*.log
+
+# Claude
+.claude/

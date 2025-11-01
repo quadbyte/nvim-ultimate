@@ -1,0 +1,9 @@
+# Repository Configuration
+# This file contains configurable repository information
+# Edit this file to customize your fork
+
+REPO_OWNER="quadbyte"
+REPO_NAME="nvim-ultimate"
+REPO_URL="https://github.com/${REPO_OWNER}/${REPO_NAME}"
+AUTHOR_NAME="QuadByte"
+AUTHOR_URL="https://github.com/${REPO_OWNER}"

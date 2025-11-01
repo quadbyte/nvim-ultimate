@@ -1,0 +1,81 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  create-release:
+    name: Create GitHub Release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Get version from tag
+        id: get_version
+        run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
+
+      - name: Extract changelog for this version
+        id: changelog
+        run: |
+          VERSION="${{ steps.get_version.outputs.VERSION }}"
+          echo "Extracting changelog for version $VERSION"
+
+          # Extract changelog section for this version
+          awk "/## \[$VERSION\]/,/## \[/" CHANGELOG.md | sed '$d' > release_notes.md
+
+          # If empty, use a default message
+          if [ ! -s release_notes.md ]; then
+            echo "Release version $VERSION" > release_notes.md
+          fi
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          name: Neovim Ultimate Edition v${{ steps.get_version.outputs.VERSION }}
+          body_path: release_notes.md
+          draft: false
+          prerelease: false
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload Release Assets
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            install.sh
+            update.sh
+            uninstall.sh
+            profile.json
+            README.md
+            CHANGELOG.md
+            LICENSE
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  verify-installation:
+    name: Verify Installation Script
+    runs-on: ubuntu-latest
+    needs: create-release
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Test installation script
+        run: |
+          chmod +x install.sh
+          ./install.sh --dry-run --skip-deps
+
+      - name: Verify documentation
+        run: |
+          test -f README.md
+          test -f CHANGELOG.md
+          test -f LICENSE
+          test -f CONTRIBUTING.md
+          echo "All documentation files present"
