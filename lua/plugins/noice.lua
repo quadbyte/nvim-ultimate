@@ -13,6 +13,18 @@ return {
       "rcarriga/nvim-notify",
     },
     opts = {
+      cmdline = {
+        enabled = true,
+        view = "cmdline_popup",
+        format = {
+          cmdline = { icon = ">" },
+          search_down = { icon = "/" },
+          search_up = { icon = "?" },
+          filter = { icon = "$" },
+          lua = { icon = "lua" },
+          help = { icon = "?" },
+        },
+      },
       lsp = {
         override = {
           ["vim.lsp.util.convert_input_to_markdown_lines"] = true,

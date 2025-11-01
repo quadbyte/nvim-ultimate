@@ -5,11 +5,13 @@ Complete guide to icon management in Neovim Ultimate Edition.
 ## Icon Sets
 
 ### 1. **VSCode Codicons** (Default)
-VSCode-like product icons - lightweight and widely supported.
+VSCode-like product icons using Nerd Font characters.
 
-**Best for:** Modern look without requiring special fonts
-**Font requirement:** Basic Unicode support
+**Best for:** Modern look with comprehensive icon coverage
+**Font requirement:** Nerd Font installed (see installation below)
 **Size:** Lightweight
+
+**Note:** If you see `[?]` or missing icons, you need to install a Nerd Font in your terminal.
 
 ```vim
 :IconsSet vscode
@@ -114,9 +116,9 @@ Override for specific projects:
 
 | Feature | VSCode | Nerd | Minimal |
 |---------|--------|------|---------|
-| Font Required | Unicode | Nerd Font | None |
+| Font Required | Nerd Font | Nerd Font | None |
 | Visual Appeal | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐ |
-| Compatibility | ⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+| Compatibility | ⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
 | Coverage | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ |
 | Performance | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
 
@@ -237,10 +239,20 @@ return {
 
 ## Troubleshooting
 
-### Icons Show as Boxes/Question Marks
-1. Install a Nerd Font
+### Icons Show as Boxes/Question Marks (`[?]`)
+This means your terminal doesn't have a Nerd Font installed.
+
+**Solution 1: Install Nerd Font** (Recommended)
+1. Install a Nerd Font (see "Installing Nerd Fonts" above)
 2. Configure your terminal to use it
-3. Or switch to VSCode/Minimal icon set
+3. Restart your terminal and Neovim
+
+**Solution 2: Switch to Minimal Icons**
+```vim
+:IconsSet minimal
+```
+
+**Note:** Both `vscode` and `nerd` icon sets require Nerd Fonts!
 
 ### Icons Look Wrong After Switching
 ```vim

@@ -1,6 +1,8 @@
 -- ══════════════════════════════════════════════════════════════════════
 -- VSCode Codicons
--- VSCode-like product icons (lightweight, widely supported)
+-- VSCode-like product icons using Nerd Font characters
+-- NOTE: Requires a Nerd Font to be installed in your terminal
+-- If icons show as [?], install a Nerd Font or switch to 'minimal' icon set
 -- ══════════════════════════════════════════════════════════════════════
 
 local M = {}
