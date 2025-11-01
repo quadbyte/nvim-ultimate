@@ -72,17 +72,20 @@ return {
       local mason_lspconfig = require("mason-lspconfig")
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-      local function setup(server)
-        local server_opts = {
-          capabilities = vim.deepcopy(capabilities),
-        }
-        require("lspconfig")[server].setup(server_opts)
-      end
-
-      -- Ensure LSP servers are installed
+      -- Setup mason-lspconfig to ensure servers are installed
       mason_lspconfig.setup({
         ensure_installed = lsp_servers,
-        handlers = { setup },
+      })
+
+      -- Setup handlers for all LSP servers
+      mason_lspconfig.setup_handlers({
+        -- Default handler for all servers
+        function(server_name)
+          local server_opts = {
+            capabilities = vim.deepcopy(capabilities),
+          }
+          require("lspconfig")[server_name].setup(server_opts)
+        end,
       })
     end,
   },
