@@ -97,7 +97,7 @@ error_exit() {
   # Offer rollback if backup exists
   if [ -d "$BACKUP_DIR" ]; then
     echo ""
-    read -p "Would you like to rollback to backup? [y/N] " -n 1 -r
+    read -p "Would you like to rollback to backup? [y/N] " -n 1 -r < /dev/tty
     echo ""
     if [[ $REPLY =~ ^[Yy]$ ]]; then
       print_info "Rolling back..."
@@ -211,7 +211,7 @@ select_profile() {
   echo "  6) 🌐 Full Stack          (Frontend + Backend)"
   echo "  7) ⚡ Minimal             (Lightweight, core only)"
   echo ""
-  read -p "Choose profile [1-7]: " profile_choice
+  read -p "Choose profile [1-7]: " profile_choice < /dev/tty
 
   case $profile_choice in
     1) PROFILE="frontend" ;;
@@ -438,7 +438,7 @@ main() {
   # Confirm installation
   if [ "$DRY_RUN" = false ]; then
     echo ""
-    read -p "Continue with installation? [y/N] " -n 1 -r
+    read -p "Continue with installation? [y/N] " -n 1 -r < /dev/tty
     echo ""
     if [[ ! $REPLY =~ ^[Yy]$ ]]; then
       print_info "Installation cancelled"

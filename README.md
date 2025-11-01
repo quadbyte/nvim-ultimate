@@ -51,30 +51,29 @@ Choose your profile, load only relevant plugins and LSP servers:
 
 ## 📦 Installation
 
-### One-Line Install (Recommended)
+### Quick Install (Recommended)
+
+**Method 1: Download and Run Installer**
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/quadbyte/nvim-ultimate/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/quadbyte/nvim-ultimate/main/install.sh -o /tmp/nvim-install.sh && bash /tmp/nvim-install.sh
 ```
 
-This will:
+**Method 2: Clone and Install**
+
+```bash
+git clone https://github.com/quadbyte/nvim-ultimate.git ~/.config/nvim-ultimate
+cd ~/.config/nvim-ultimate
+./install.sh
+```
+
+Both methods will:
 1. ✅ Detect your platform (macOS/Linux/WSL)
 2. ✅ Check dependencies (Neovim 0.10+, git, node, etc.)
 3. ✅ Let you choose a profile interactively
 4. ✅ Backup existing configuration automatically
-5. ✅ Install required dependencies
+5. ✅ Install required dependencies (if missing)
 6. ✅ Deploy configuration and install plugins
-
-### Alternative: Clone and Install
-
-```bash
-# Clone the repository
-git clone https://github.com/quadbyte/nvim-ultimate.git ~/.config/nvim-ultimate
-
-# Run the installer
-cd ~/.config/nvim-ultimate
-./install.sh
-```
 
 ### Manual Installation
 
