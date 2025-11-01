@@ -355,7 +355,12 @@ deploy_config() {
   # Copy additional files
   [ -f "$SCRIPT_DIR/profile.json" ] && cp "$SCRIPT_DIR/profile.json" "$NVIM_CONFIG_DIR/"
   [ -f "$SCRIPT_DIR/.gitignore" ] && cp "$SCRIPT_DIR/.gitignore" "$NVIM_CONFIG_DIR/"
-  [ -f "$SCRIPT_DIR/README.md" ] && cp "$SCRIPT_DIR/README.md" "$NVIM_CONFIG_DIR/"
+
+  # Copy documentation files
+  print_info "Copying documentation..."
+  for doc in README.md QUICKSTART.md KEYBINDINGS.md THEMES.md ICONS.md CUSTOMIZATION.md CONTRIBUTING.md CHANGELOG.md LICENSE; do
+    [ -f "$SCRIPT_DIR/$doc" ] && cp "$SCRIPT_DIR/$doc" "$NVIM_CONFIG_DIR/"
+  done
 
   # Copy scripts
   [ -f "$SCRIPT_DIR/update.sh" ] && cp "$SCRIPT_DIR/update.sh" "$NVIM_CONFIG_DIR/" && chmod +x "$NVIM_CONFIG_DIR/update.sh"
@@ -490,7 +495,7 @@ main() {
   echo "     :NvimUltimateHealth"
   echo ""
   echo "  3. View keybindings:"
-  echo "     cat ~/.config/nvim/KEYBINDINGS.md"
+  echo "     cat $NVIM_CONFIG_DIR/KEYBINDINGS.md"
   echo ""
   echo "  4. Switch profile:"
   echo "     :ProfileSwitch <name>"
@@ -502,10 +507,15 @@ main() {
   echo "     :Lazy"
   echo ""
   echo "Documentation:"
-  echo "  README:      ~/.config/nvim/README.md"
-  echo "  Keybindings: ~/.config/nvim/KEYBINDINGS.md"
-  echo "  Themes:      ~/.config/nvim/THEMES.md"
-  echo "  Update:      ~/.config/nvim/update.sh"
+  echo "  README:      $NVIM_CONFIG_DIR/README.md"
+  echo "  Keybindings: $NVIM_CONFIG_DIR/KEYBINDINGS.md"
+  echo "  Themes:      $NVIM_CONFIG_DIR/THEMES.md"
+  echo "  Icons:       $NVIM_CONFIG_DIR/ICONS.md"
+  echo "  Customize:   $NVIM_CONFIG_DIR/CUSTOMIZATION.md"
+  echo ""
+  echo "Management:"
+  echo "  Update:      $NVIM_CONFIG_DIR/update.sh"
+  echo "  Uninstall:   $NVIM_CONFIG_DIR/uninstall.sh"
   echo ""
   print_success "Happy coding! 🚀"
 }
