@@ -1,0 +1,52 @@
+# Labeler configuration for auto-labeling pull requests
+# https://github.com/actions/labeler
+
+# Documentation
+documentation:
+  - changed-files:
+    - any-glob-to-any-file: '**/*.md'
+
+# Lua code
+lua:
+  - changed-files:
+    - any-glob-to-any-file: '**/*.lua'
+
+# Shell scripts
+scripts:
+  - changed-files:
+    - any-glob-to-any-file: '**/*.sh'
+
+# CI/CD
+ci/cd:
+  - changed-files:
+    - any-glob-to-any-file: '.github/**/*'
+
+# Configuration
+configuration:
+  - changed-files:
+    - any-glob-to-any-file:
+      - 'profile.json'
+      - '.*rc'
+      - '.*.toml'
+      - '.*.json'
+      - 'Makefile'
+
+# Dependencies
+dependencies:
+  - changed-files:
+    - any-glob-to-any-file:
+      - 'profile.json'
+      - 'VERSION'
+
+# Tests
+tests:
+  - changed-files:
+    - any-glob-to-any-file: 'tests/**/*'
+
+# Docker
+docker:
+  - changed-files:
+    - any-glob-to-any-file:
+      - '**/Dockerfile*'
+      - '**/docker-compose*.yml'
+      - '.dockerignore'

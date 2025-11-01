@@ -10,6 +10,10 @@ A high-performance, modular Neovim distribution designed for developers working 
 [![CI](https://github.com/quadbyte/nvim-ultimate/workflows/Tests/badge.svg)](https://github.com/quadbyte/nvim-ultimate/actions)
 [![Stars](https://img.shields.io/github/stars/quadbyte/nvim-ultimate?style=social)](https://github.com/quadbyte/nvim-ultimate)
 [![Code of Conduct](https://img.shields.io/badge/Code%20of%20Conduct-Contributor%20Covenant-purple.svg)](CODE_OF_CONDUCT.md)
+[![Last Commit](https://img.shields.io/github/last-commit/quadbyte/nvim-ultimate)](https://github.com/quadbyte/nvim-ultimate/commits/main)
+[![Code Size](https://img.shields.io/github/languages/code-size/quadbyte/nvim-ultimate)](https://github.com/quadbyte/nvim-ultimate)
+[![Contributors](https://img.shields.io/github/contributors/quadbyte/nvim-ultimate)](https://github.com/quadbyte/nvim-ultimate/graphs/contributors)
+[![Issues](https://img.shields.io/github/issues/quadbyte/nvim-ultimate)](https://github.com/quadbyte/nvim-ultimate/issues)
 
 ## ✨ Features
 
@@ -52,6 +56,20 @@ Choose your profile, load only relevant plugins and LSP servers:
 - Better folding (UFO)
 - Health check system
 - Performance benchmarking
+
+## 📸 Screenshots
+
+> **Note**: Screenshots and visual demos will be added in a future update. For now, check out the comprehensive documentation and try the configuration yourself!
+
+**Planned Visuals:**
+- 🎨 **Profile Switcher**: Telescope picker showing all 7 development profiles
+- 🌈 **Theme System**: Live theme preview with multiple colorschemes
+- 💻 **LSP in Action**: Code completion, diagnostics, and hover documentation
+- 🔍 **Fuzzy Finding**: Telescope search across files, buffers, and symbols
+- 📁 **File Explorer**: Neo-tree with git integration and icons
+- ⚡ **Terminal Integration**: Floating and split terminal modes
+
+**Want to contribute?** We'd love to include screenshots from the community! See [CONTRIBUTING.md](CONTRIBUTING.md) for how to submit visuals.
 
 ## 📦 Installation
 

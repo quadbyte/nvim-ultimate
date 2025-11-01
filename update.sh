@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # ══════════════════════════════════════════════════════════════════════
 # Neovim Ultimate Edition - Update Script
