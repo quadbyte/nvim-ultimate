@@ -1,0 +1,7 @@
+# Git mailmap for Neovim Ultimate Edition
+# https://git-scm.com/docs/gitmailmap
+
+# Format: Proper Name <proper@email.xx> <commit@email.xx>
+# This ensures consistent contributor names in git log and GitHub
+
+QuadByte <noreply@quadbyte.com>

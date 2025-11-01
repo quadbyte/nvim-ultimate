@@ -1,0 +1,52 @@
+{
+  "active_profile": "custom",
+  "performance_mode": "balanced",
+  "last_updated": "2025-01-01",
+  "custom_settings": {
+    "enable_inlay_hints": true,
+    "format_on_save": true,
+    "auto_install_lsp": true,
+    "enable_copilot": false,
+    "session_autosave": true
+  },
+  "ui_preferences": {
+    "colorscheme": "catppuccin",
+    "style": "mocha",
+    "transparency": false,
+    "icons": "nerd",
+    "borders": "rounded"
+  },
+  "components": {
+    "statusline": {
+      "enabled": true,
+      "style": "default"
+    },
+    "tabline": {
+      "enabled": true
+    },
+    "explorer": {
+      "enabled": true,
+      "width": 35
+    },
+    "terminal": {
+      "enabled": true,
+      "position": "bottom"
+    },
+    "git_signs": {
+      "enabled": true
+    },
+    "completion": {
+      "enabled": true
+    },
+    "diagnostics": {
+      "enabled": true,
+      "virtual_text": false
+    },
+    "notifications": {
+      "enabled": true
+    },
+    "outline": {
+      "enabled": true
+    }
+  }
+}

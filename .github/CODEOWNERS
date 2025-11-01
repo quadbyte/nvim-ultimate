@@ -1,0 +1,23 @@
+# Code owners for Neovim Ultimate Edition
+# https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Default owner for everything
+* @quadbyte
+
+# Core configuration
+/lua/core/ @quadbyte
+/init.lua @quadbyte
+
+# Documentation
+/docs/ @quadbyte
+*.md @quadbyte
+
+# CI/CD and workflows
+/.github/ @quadbyte
+
+# Critical files
+/install.sh @quadbyte
+/update.sh @quadbyte
+/uninstall.sh @quadbyte
+/Makefile @quadbyte
+/profile.json @quadbyte

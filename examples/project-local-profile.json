@@ -1,0 +1,13 @@
+{
+  "description": "Project-local profile example - save as .nvim-profile.json in project root",
+  "active_profile": "backend",
+  "custom_settings": {
+    "format_on_save": true,
+    "auto_install_lsp": true
+  },
+  "ui_preferences": {
+    "colorscheme": "tokyonight",
+    "style": "storm",
+    "icons": "vscode"
+  }
+}

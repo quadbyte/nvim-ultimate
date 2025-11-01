@@ -1,0 +1,42 @@
+{
+  "name": "nvim-ultimate",
+  "version": "0.1.0",
+  "description": "High-performance, profile-based Neovim configuration for professional developers",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/quadbyte/nvim-ultimate.git"
+  },
+  "keywords": [
+    "neovim",
+    "nvim",
+    "vim",
+    "text-editor",
+    "ide",
+    "lua",
+    "lsp",
+    "developer-tools",
+    "dotfiles"
+  ],
+  "author": "QuadByte",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/quadbyte/nvim-ultimate/issues"
+  },
+  "homepage": "https://github.com/quadbyte/nvim-ultimate#readme",
+  "scripts": {
+    "lint:md": "markdownlint '**/*.md' --ignore node_modules --ignore .git",
+    "lint:links": "markdown-link-check README.md docs/**/*.md --config .github/markdown-link-check-config.json",
+    "format:md": "prettier --write '**/*.{md,json,yml,yaml}' --ignore-path .gitignore",
+    "format:check": "prettier --check '**/*.{md,json,yml,yaml}' --ignore-path .gitignore"
+  },
+  "devDependencies": {
+    "markdown-link-check": "^3.12.1",
+    "markdownlint-cli": "^0.39.0",
+    "prettier": "^3.2.4"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "npm": ">=10.0.0"
+  },
+  "private": true
+}
