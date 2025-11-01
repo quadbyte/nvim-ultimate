@@ -4,6 +4,8 @@
 
 A high-performance, modular Neovim distribution designed for developers working across multiple companies, projects, and tech stacks. Load only what you need, switch profiles instantly, and enjoy blazing-fast startup times.
 
+**📖 [Read more about the project vision, philosophy, and differentiators →](ABOUT.md)**
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Platform](https://img.shields.io/badge/platform-macOS%20%7C%20Linux%20%7C%20WSL-blue)](#)
 [![Version](https://img.shields.io/badge/version-0.1.0-green.svg)](https://github.com/quadbyte/nvim-ultimate/releases)
@@ -39,7 +41,7 @@ Choose your profile, load only relevant plugins and LSP servers:
 - **Windows WSL2**
 
 ### 🔧 Professional Features
-- 50+ carefully selected plugins
+- 64 carefully selected plugins (54 features + 10 themes)
 - 11+ LSP servers (profile-dependent)
 - Auto-formatting on save
 - Git integration (gitsigns, lazygit)

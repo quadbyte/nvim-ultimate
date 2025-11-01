@@ -1,0 +1,31 @@
+{
+  "projectName": "nvim-ultimate",
+  "projectOwner": "quadbyte",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "docs/community/CONTRIBUTORS.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "commitConvention": "none",
+  "contributors": [
+    {
+      "login": "quadbyte",
+      "name": "QuadByte",
+      "avatar_url": "https://github.com/quadbyte.png",
+      "profile": "https://github.com/quadbyte",
+      "contributions": [
+        "code",
+        "doc",
+        "design",
+        "infra",
+        "maintenance"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "skipCi": true,
+  "badgeTemplate": "[![All Contributors](https://img.shields.io/badge/all_contributors-<%= contributors.length %>-orange.svg)](#contributors)",
+  "contributorTemplate": "<a href=\"<%= contributor.profile %>\"><img src=\"<%= contributor.avatar_url %>\" width=\"<%= options.imageSize %>px;\" alt=\"<%= contributor.name %>\"/><br /><sub><b><%= contributor.name %></b></sub></a>"
+}
