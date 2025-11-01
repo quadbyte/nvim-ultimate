@@ -45,17 +45,17 @@ return {
     },
     init = function()
       -- Setup folding options before plugin loads
-      vim.opt.fillchars = {
-        eob = " ",
-        fold = " ",
-        foldopen = "",
-        foldsep = " ",
-        foldclose = "",
-      }
       vim.o.foldcolumn = "1"
       vim.o.foldlevel = 99
       vim.o.foldlevelstart = 99
       vim.o.foldenable = true
+
+      -- Set fillchars with safe characters
+      vim.opt.fillchars:append({
+        eob = " ",
+        fold = " ",
+        foldsep = " ",
+      })
     end,
     config = function(_, opts)
       require("ufo").setup(opts)
